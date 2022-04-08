@@ -1,0 +1,10 @@
+<h1><%= @user.name %>'s Page</h1>
+
+<p>I host the following events:</p>
+
+<ul>
+  <% @user.events.each do |event| %>
+    <li><%= event.name %></li>
+  <% end %>
+</ul>
+
