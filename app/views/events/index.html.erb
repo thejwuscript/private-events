@@ -1,0 +1,11 @@
+<h1>List of Events In Town</h1>
+
+<ul>
+  <% @events.each do |event| %>
+    <li>
+      <a href="<%= event_path(event) %>">
+        <%= event.name %>
+      </a>
+    </li>
+  <% end %>
+</ul>
