@@ -1,0 +1,18 @@
+<% if @event.errors.any? %>
+  <div id="error-explanation">
+  Error occurred.
+  </div>
+<% end 
+%>
+<h1>Create a New Event</h1>
+
+<%= form_with model: @event do |form| %>
+  <%= form.label :name, "Event Name" %>
+  <%= form.text_field :name %><br><br>
+  <%= form.label :date %>
+  <%= form.date_select :date %><br><br>
+  <%= form.label :location %>
+  <%= form.text_field :location %><br><br>
+  <%= form.submit "Create Event" %>
+<% end %>
+
