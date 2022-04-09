@@ -1,3 +1,7 @@
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, class: name %>
+<% end %>
+
 <h1>Event Details</h1>
 
 <ul>
@@ -5,3 +9,12 @@
   <li>The date of event is <%= @event.date %>.</li>
   <li>The event is located at <%= @event.location %>.</li>
 </ul>
+
+<p>Attendance List</p>
+<ul>
+  <% @event.attendees.each do |attendee| %>
+    <li><%= attendee.name %></li>
+  <% end %>
+</ul>
+
+<%= button_to "Attend this event", event_attendings_path(event_id: @event.id) %>
