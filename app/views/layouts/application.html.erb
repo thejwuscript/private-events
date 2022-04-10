@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PrivateEvents</title>
+    <title>Private Events</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,7 +12,27 @@
 
   <body>
     <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: name %>
+    <% end %>
+    <header>
+      <nav>
+        <ul class="left-links">
+          <li><%= link_to "Home", root_path %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to "My Events", user_path(current_user) %></li>
+        <% end %>
+        </ul>
+        <ul class="right-links">
+        <% if user_signed_in? %>
+          <li><%= link_to "Sign Out", destroy_user_session_path, data: {turbo_method: :delete} %></li>
+        <% else %>
+          <li><%= link_to "Sign In", new_user_session_path %><br></li>
+          <li><%= link_to "Sign Up", new_user_registration_path %></li>
+        <% end %>
+        </ul>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>
