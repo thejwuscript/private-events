@@ -14,4 +14,6 @@
 </ul>
 <br>
 <br>
-<%= button_to "Attend this event", event_attendings_path(event_id: @event.id) %>
+<% unless @event.creator_id == current_user.id %>
+  <%= button_to "Attend this event", event_attendings_path(event_id: @event.id) %>
+<% end %>
