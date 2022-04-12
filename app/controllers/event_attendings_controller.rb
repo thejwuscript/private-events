@@ -14,7 +14,9 @@ class EventAttendingsController < ApplicationController
   end
 
   def destroy
-    @event_attending = EventAttending.find(params[:id])
+    event = Event.find(params[:event_id])
+
+    @event_attending = EventAttending.find_by(attendee_id: current_user, attended_event_id: event)
     @event_attending.destroy
 
     redirect_to root_path
