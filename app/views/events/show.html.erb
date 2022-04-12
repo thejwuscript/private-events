@@ -18,5 +18,5 @@
   <%= button_to "Attend this event", event_attendings_path(event_id: @event.id) %>
 <% else %>
   <%= link_to "Edit Event", edit_event_path(@event) %>
-  <%# delete event %>
+  <%= link_to "Delete Event", @event, data: { turbo_method: :delete } %>
 <% end %>
