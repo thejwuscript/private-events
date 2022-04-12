@@ -4,9 +4,13 @@
 <ul>
   <% Event.past.each do |event| %>
     <li>
-      <a href="<%= event_path(event) %>">
-        <%= event.name %>
-      </a>
+      <% if !(user_signed_in?) %>
+        <i>Hidden Event</i>
+      <% elsif event.attendees.include?(current_user) || event.creator_id == current_user.id %>
+        <a href="<%= event_path(event) %>"><%= event.name %></a>
+      <% else %>
+        <i>Hidden Event</i>
+      <% end %>
     </li>
   <% end %>
 </ul>
@@ -15,9 +19,13 @@
 <ul>
   <% Event.upcoming.each do |event| %>
     <li>
-      <a href="<%= event_path(event) %>">
-        <%= event.name %>
-      </a>
+       <% if !(user_signed_in?) %>
+        <i>Hidden Event</i>
+      <% elsif event.attendees.include?(current_user) || event.creator_id == current_user.id %>
+        <a href="<%= event_path(event) %>"><%= event.name %></a>
+      <% else %>
+        <i>Hidden Event</i>
+      <% end %>
     </li>
   <% end %>
 </ul>
