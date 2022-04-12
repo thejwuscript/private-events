@@ -64,3 +64,6 @@
    color: whitesmoke;
  }
 
+.field_with_errors {
+  display: inline-block;
+}

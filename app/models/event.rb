@@ -4,6 +4,9 @@ class Event < ApplicationRecord
   has_many :attendees, through: :event_attendings
   scope :past, -> { where("date < ?", Time.now) }
   scope :upcoming, -> { where("date > ?", Time.now) }
+  validates :name, presence: true, uniqueness: true
+  validates :date, presence: true
+  validates :location, presence: true, uniqueness: true
 
   #def Event.past
   #  Event.all.where("date < ?", Time.now)

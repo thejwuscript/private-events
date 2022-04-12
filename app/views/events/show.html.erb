@@ -16,4 +16,7 @@
 <br>
 <% unless @event.creator_id == current_user.id %>
   <%= button_to "Attend this event", event_attendings_path(event_id: @event.id) %>
+<% else %>
+  <%= link_to "Edit Event", edit_event_path(@event) %>
+  <%# delete event %>
 <% end %>
