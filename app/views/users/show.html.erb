@@ -7,21 +7,22 @@
     <li><a href="/events/<%= event.id %>"><%= event.name %></li>
   <% end %>
 </ul>
+<%= link_to "Create New Event", new_event_path %>
+<p>------------------------------------------------------------</p>
 
 <p>I have attended the following events:</p>
 <ul>
   <% @user.attended_events.where("date < ?", Time.now).each do |event| %>
-    <li><%= event.name %></li>
+    <li><%= link_to event.name, event_path %></li>
   <% end %>
 </ul>
 
 <p>I will attend the following events:</p>
 <ul>
   <% @user.attended_events.where("date > ?", Time.now).each do |event| %>
-    <li><%= event.name %></li>
+    <li><%= link_to event.name, event_path %></li>
   <% end %>
 </ul>
 
 
-<%= link_to "Create New Event", new_event_path %>
 

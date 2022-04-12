@@ -12,4 +12,11 @@ class EventAttendingsController < ApplicationController
       render "events/show", status: :unprocessable_entity
     end
   end
+
+  def destroy
+    @event_attending = EventAttending.find(params[:id])
+    @event_attending.destroy
+
+    redirect_to root_path
+  end
 end

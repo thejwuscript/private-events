@@ -15,7 +15,11 @@
 <br>
 <br>
 <% unless @event.creator_id == current_user.id %>
-  <%= button_to "Attend this event", event_attendings_path(event_id: @event.id) %>
+  <% if @event.attendees.include?(current_user) %>
+    <%= button_to "Leave this event", event_attending_path(EventAttending.find_by(attendee_id: current_user, attended_event_id: @event.id)), method: :delete, data: { turbo: false } %>
+  <% else %>
+    <%= button_to "Attend this event", event_attendings_path(event_id: @event.id) %>
+  <% end %>
 <% else %>
   <%= link_to "Edit Event", edit_event_path(@event) %>
   <%= link_to "Delete Event", @event, data: { turbo_method: :delete } %>
