@@ -1,0 +1,23 @@
+<h1>Invite Guests</h1>
+
+<form action="">
+  <fieldset>
+    <legend> Which guest do you want to invite?</legend>
+    <% @users.each do |user|%>
+      <div>
+        <input type="radio", id="invited_<%= user.name%>", name="invited", value="<%=user.name %>">
+        <label for="invited_<%= user.name %>"><%= user.name %></label>
+      </div>
+    <% end %>
+  </fieldset>
+  <fieldset>
+    <legend>To which event?</legend>
+    <% @events.each do |event| %>
+      <div>
+        <input type="radio", id="to_<%= event.name %>", name="to", value="<%= event.name %>">
+        <label for="to_<%= event.name %>"><%= event.name %></label>
+      </div>
+    <% end %>
+  </fieldset>
+  <button type="submit">Submit</button>
+</form>

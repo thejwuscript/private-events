@@ -10,4 +10,5 @@ Rails.application.routes.draw do
 
   resources :events
   resources :event_attendings, only: [:create, :destroy]
+  resources :invitations
 end
