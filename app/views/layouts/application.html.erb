@@ -20,6 +20,7 @@
           <li><%= link_to "Home", root_path %></li>
         <% if user_signed_in? %>
           <li><%= link_to "My Events", user_path(current_user) %></li>
+          <li><%= link_to "My Invites", invitations_path %></li>
         <% end %>
         </ul>
         <ul class="right-links">
