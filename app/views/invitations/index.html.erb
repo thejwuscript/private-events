@@ -4,7 +4,7 @@
 
 <h2>Invitations Received:</h2>
 <ul>
-  <% @invitations.select { |invitation| invitation.invitee = current_user }.each do |invitation| %>
+  <% @invitations.select { |invitation| invitation.invitee == current_user }.each do |invitation| %>
     <li><%= invitation.event.name %></li>
   <% end %>
 </ul>

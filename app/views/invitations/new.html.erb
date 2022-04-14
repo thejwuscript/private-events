@@ -1,12 +1,13 @@
 <h1>Invite Guests</h1>
 
-<form action="">
+<form action="/invitations" method="post" accept-charset="UTF-8" data-turbo="false">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <fieldset>
     <legend> Which guest do you want to invite?</legend>
     <% @users.each do |user|%>
       <div>
-        <input type="radio", id="invited_<%= user.name%>", name="invited", value="<%=user.name %>">
-        <label for="invited_<%= user.name %>"><%= user.name %></label>
+        <input type="radio", id="invitee" name="invitation[invitee]" value="<%=user.name %>">
+        <label for="invitee"><%= user.name %></label>
       </div>
     <% end %>
   </fieldset>
@@ -14,8 +15,8 @@
     <legend>To which event?</legend>
     <% @events.each do |event| %>
       <div>
-        <input type="radio", id="to_<%= event.name %>", name="to", value="<%= event.name %>">
-        <label for="to_<%= event.name %>"><%= event.name %></label>
+        <input type="radio" id="event" name="invitation[event]" value="<%= event.name %>">
+        <label for="event"><%= event.name %></label>
       </div>
     <% end %>
   </fieldset>
