@@ -10,10 +10,10 @@ class InvitationsController < ApplicationController
   
   def create
     @invitee = User.find_by(name: invitation_params[:invitee])
-    @event = Event.find_by(name: invitation_params[:event])
+    @event = Event.find_by(name: invitation_params[:invited_event])
     @invitation = Invitation.new
     @invitation.invitee = @invitee
-    @invitation.event = @event
+    @invitation.invited_event = @event
 
     if @invitation.save
       flash[:success] = "Invitation sent."
@@ -27,7 +27,7 @@ class InvitationsController < ApplicationController
   private
   
   def invitation_params
-    params.require(:invitation).permit(:invitee, :event)
+    params.require(:invitation).permit(:invitee, :invited_event)
   end
   
 end

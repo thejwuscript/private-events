@@ -15,8 +15,8 @@
     <legend>To which event?</legend>
     <% @events.each do |event| %>
       <div>
-        <input type="radio" id="event" name="invitation[event]" value="<%= event.name %>">
-        <label for="event"><%= event.name %></label>
+        <input type="radio" id="invited_event" name="invitation[invited_event]" value="<%= event.name %>">
+        <label for="invited_event"><%= event.name %></label>
       </div>
     <% end %>
   </fieldset>
