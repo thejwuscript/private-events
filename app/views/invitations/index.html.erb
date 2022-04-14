@@ -1,3 +1,11 @@
 <h1>My Invitations</h1>
 
 <%= link_to "Create new invites", new_invitation_path %>
+
+<h2>Invitations Received:</h2>
+<ul>
+  <% @invitations.select { |invitation| invitation.invitee = current_user }.each do |invitation| %>
+    <li><%= invitation.event.name %></li>
+  <% end %>
+</ul>
+

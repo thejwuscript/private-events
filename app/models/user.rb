@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :event_attendings, foreign_key: :attendee_id
   has_many :attended_events, through: :event_attendings
   has_many :invitations, foreign_key: 'invitee_id'
+  has_many :events, through: :invitations
 
   validates :name, presence: true, uniqueness: true, length: { in: 4..10 }
 end

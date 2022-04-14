@@ -3,6 +3,7 @@ class Event < ApplicationRecord
   has_many :event_attendings, foreign_key: :attended_event_id, dependent: :destroy
   has_many :attendees, through: :event_attendings
   has_many :invitations, dependent: :destroy
+  has_many :invitees, through: :invitations
 
   scope :past, -> { where("date < ?", Time.now) }
   scope :upcoming, -> { where("date > ?", Time.now) }
