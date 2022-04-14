@@ -1,0 +1,121 @@
+
+---
+ar_internal_metadata:
+  columns:
+  - key
+  - value
+  - created_at
+  - updated_at
+  records: 
+  - - environment
+    - development
+    - '2022-04-08 15:03:40.558656'
+    - '2022-04-08 15:03:40.558656'
+
+---
+events:
+  columns:
+  - id
+  - name
+  - date
+  - location
+  - created_at
+  - updated_at
+  - creator_id
+  records: 
+  - - 2
+    - STUDY GROUP 2
+    - '2022-05-08'
+    - State Library
+    - '2022-04-08 19:44:05.796620'
+    - '2022-04-08 19:44:05.796620'
+    - 1
+  - - 3
+    - STUDY GROUP 3
+    - '2022-04-18'
+    - Local Library
+    - '2022-04-08 19:44:52.331737'
+    - '2022-04-08 19:44:52.331737'
+    - 1
+  - - 4
+    - STUDY GROUP 4
+    - '2022-08-08'
+    - Local Library
+    - '2022-04-08 19:46:09.611701'
+    - '2022-04-08 19:46:09.611701'
+    - 1
+  - - 5
+    - 'LAN session #1'
+    - '2022-01-12'
+    - Internet Cafe
+    - '2022-04-12 15:39:08.160296'
+    - '2022-04-12 15:39:08.160296'
+    - 3
+  - - 6
+    - 'LAN Session #2'
+    - '2022-11-12'
+    - Cafe
+    - '2022-04-12 15:39:25.761274'
+    - '2022-04-12 15:39:42.923280'
+    - 3
+
+---
+invitations:
+  columns:
+  - id
+  - created_at
+  - updated_at
+  - invitee_id
+  - invited_event_id
+  records: 
+  - - 1
+    - '2022-04-14 12:47:07.390897'
+    - '2022-04-14 12:47:07.390897'
+    - 3
+    - 4
+  - - 2
+    - '2022-04-14 12:50:51.555337'
+    - '2022-04-14 12:50:51.555337'
+    - 2
+    - 5
+
+---
+users:
+  columns:
+  - id
+  - email
+  - encrypted_password
+  - reset_password_token
+  - reset_password_sent_at
+  - remember_created_at
+  - created_at
+  - updated_at
+  - name
+  records: 
+  - - 1
+    - 111@ex.com
+    - "$2a$12$.MGzJQH9GN5QK8WCkzqzcuVD1V8oTtg.EhZ6zHi8qrgUq6xPtP4Zm"
+    -
+    -
+    -
+    - '2022-04-08 19:11:05.897808'
+    - '2022-04-08 19:11:05.897808'
+    - FirstUser
+  - - 2
+    - 222@ex.com
+    - "$2a$12$tzw5YkHNr2NTZFBYHEifveNWukuNLG/BAZ4MFLDSQRvcs.KxlgE2O"
+    -
+    -
+    -
+    - '2022-04-09 17:00:35.938995'
+    - '2022-04-09 17:00:35.938995'
+    - SecondUser
+  - - 3
+    - 333@ex.com
+    - "$2a$12$T/9sXkNBq2qveQUUJ9xn4eq4OrYQBJgz4waFG/JVbNTnsB0DkbykC"
+    -
+    -
+    -
+    - '2022-04-09 17:57:13.682067'
+    - '2022-04-09 17:57:13.682067'
+    - ThirdUser
