@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_15_093017) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_15_135345) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,7 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_15_093017) do
     t.index ["attendee_id"], name: "index_event_attendings_on_attendee_id"
   end
 
-  create_table "events", id: :bigint, default: nil, force: :cascade do |t|
+  create_table "events", force: :cascade do |t|
     t.text "name"
     t.date "date"
     t.text "location"
@@ -34,7 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_15_093017) do
     t.index ["creator_id"], name: "idx_18784_index_events_on_creator_id"
   end
 
-  create_table "invitations", id: :bigint, default: nil, force: :cascade do |t|
+  create_table "invitations", id: :bigint, default: -> { "nextval('invitation_id_seq'::regclass)" }, force: :cascade do |t|
     t.timestamptz "created_at"
     t.timestamptz "updated_at"
     t.bigint "invitee_id"
