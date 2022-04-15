@@ -17,7 +17,7 @@ class EventAttendingsController < ApplicationController
     event = Event.find(params[:event_id])
 
     @event_attending = EventAttending.find_by(attendee_id: current_user, attended_event_id: event)
-    @event_attending.destroy
+    @event_attending.delete
 
     redirect_to root_path
   end
